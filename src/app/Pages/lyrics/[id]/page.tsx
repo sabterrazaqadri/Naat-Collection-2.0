@@ -2,7 +2,7 @@
 import { useParams } from "next/navigation";
 import { useState } from "react";
 
-const LyricsPage: React.FC = () => {
+const Lyrics: React.FC = () => {
   const { id } = useParams();
   const [isCopied, setIsCopied] = useState(false);
 
@@ -287,4 +287,4 @@ __________`,
   );
 };
 
-export default LyricsPage;
+export default Lyrics;
