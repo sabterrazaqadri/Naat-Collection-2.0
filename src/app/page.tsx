@@ -1,26 +1,41 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FiSearch } from "react-icons/fi"; // Search Icon from React Icons
 
 const HomePage: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showSearch, setShowSearch] = useState(false);
+  const [isWideScreen, setIsWideScreen] = useState(false);
 
   const topics = [
     { name: "حمد", href: "/Pages/hamd", bgImage: "url('hamd.jpg')" },
-    { name: "نعت", href: "/Pages/naat", bgImage: "url('naat.jpg')" },
-    { name: "منقبت", href: "/Pages/manqabat", bgImage: "url('manqabat.jpg')" },
-    { name: "سلام", href: "/Pages/salam", bgImage: "url('salam.jpg')" },
-    { name: "مناجات", href: "/Pages/munajaat", bgImage: "url('dua.jpg')" },
-    { name: "متفرقات", href: "/Pages/mutafarriq", bgImage: "url('misc.jpg')" },
+    { name: "نعت", href: "./", bgImage: "url('naat.jpg')" },
+    { name: "منقبت", href: "./", bgImage: "url('manqabat.jpg')" },
+    { name: "سلام", href: "./", bgImage: "url('salam.jpg')" },
+    { name: "مناجات", href: "./", bgImage: "url('dua.jpg')" },
+    { name: "متفرقات", href: "./", bgImage: "url('misc.jpg')" },
   ];
 
   const filteredTopics = topics.filter((topic) =>
     topic.name.includes(searchTerm)
   );
+
+  // Update `isWideScreen` on mount and resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsWideScreen(window.innerWidth >= 640);
+    };
+
+    handleResize(); // Set initial state
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-background p-4 text-foreground font-urdu">
@@ -28,7 +43,7 @@ const HomePage: React.FC = () => {
         {/* Search Input / Icon */}
         <div className="flex items-center gap-2">
           {/* Show input on larger screens or if toggled */}
-          {(showSearch || window.innerWidth >= 640) && (
+          {(showSearch || isWideScreen) && (
             <input
               type="text"
               value={searchTerm}
@@ -39,7 +54,7 @@ const HomePage: React.FC = () => {
           )}
           {/* Show search icon for smaller screens */}
           <button
-            className="sm:hidden bg-white text-black p-2 rounded-md shadow-md" 
+            className="sm:hidden bg-white text-black p-2 rounded-md shadow-md"
             onClick={() => setShowSearch(!showSearch)}
             aria-label="Toggle Search"
           >
@@ -56,7 +71,7 @@ const HomePage: React.FC = () => {
           className="bg-white text-black px-4 py-2 rounded-md shadow-md"
           aria-label="Toggle Menu"
         >
-          {menuOpen ? "☰" : "☰"}
+          ☰
         </button>
       </header>
 
@@ -85,7 +100,9 @@ const HomePage: React.FC = () => {
 
       {/* Main Content */}
       <main className="mt-16">
-        <h2 className="text-xl mb-8 font-semibold text-center text-shadow-blueGlow text-blue-600 underline lg:text-3xl">موضوعات</h2>
+        <h2 className="text-xl mb-8 font-semibold text-center text-shadow-blueGlow text-blue-600 underline lg:text-3xl">
+          موضوعات
+        </h2>
         <div className="grid grid-cols-2 gap-4">
           {filteredTopics.length > 0 ? (
             filteredTopics.map((topic) => (
