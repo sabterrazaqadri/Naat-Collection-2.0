@@ -11,7 +11,7 @@ const HomePage: React.FC = () => {
   const [isWideScreen, setIsWideScreen] = useState(false);
 
   const topics = [
-    { name: "حمد", href: "/Pages/hamd", bgImage: "url('hamd.jpg')" },
+    { name: "حمد", href: "/pages/hamd", bgImage: "url('hamd.jpg')" },
     { name: "نعت", href: "./", bgImage: "url('naat.jpg')" },
     { name: "منقبت", href: "./", bgImage: "url('manqabat.jpg')" },
     { name: "سلام", href: "./", bgImage: "url('salam.jpg')" },
@@ -100,7 +100,7 @@ const HomePage: React.FC = () => {
 
       {/* Main Content */}
       <main className="mt-16">
-        <h2 className="text-xl mb-8 font-semibold text-center text-shadow-blueGlow text-blue-600 underline lg:text-3xl">
+        <h2 className="text-xl mb-8 font-semibold text-center text-shadow-blueGlow text-blue-600 underline underline-offset-4 lg:text-3xl">
           موضوعات
         </h2>
         <div className="grid grid-cols-2 gap-4">
