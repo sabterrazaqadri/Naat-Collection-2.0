@@ -12,11 +12,11 @@ const HomePage: React.FC = () => {
 
   const topics = [
     { name: "حمد", href: "/pages/hamd", bgImage: "url('hamd.jpg')" },
-    { name: "نعت", href: "./", bgImage: "url('naat.jpg')" },
-    { name: "منقبت", href: "./", bgImage: "url('manqabat.jpg')" },
-    { name: "سلام", href: "./", bgImage: "url('salam.jpg')" },
-    { name: "مناجات", href: "./", bgImage: "url('dua.jpg')" },
-    { name: "متفرقات", href: "./", bgImage: "url('misc.jpg')" },
+    { name: "نعت", href: "/pages/naat", bgImage: "url('naat.jpg')" },
+    { name: "منقبت", href: "", bgImage: "url('manqabat.jpg')" },
+    { name: "سلام", href: "", bgImage: "url('salam.jpg')" },
+    { name: "مناجات", href: "", bgImage: "url('dua.jpg')" },
+    { name: "متفرقات", href: "", bgImage: "url('misc.jpg')" },
   ];
 
   const filteredTopics = topics.filter((topic) =>
