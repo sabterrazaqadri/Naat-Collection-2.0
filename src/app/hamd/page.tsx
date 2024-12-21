@@ -19,7 +19,7 @@ const hamd: React.FC = () => {
       <ul className="space-y-2">
         {songs.map((song) => (
           <li key={song.id} className="bg-white p-4 rounded-lg md:text-2xl text-lg text-center shadow-md font-semibold border ">
-            <Link href={`/pages/lyrics/${song.id}`}>
+            <Link href={`/lyrics/${song.id}`}>
              <h3 className="text-background border-b-2">{song.name}</h3>
             </Link>
           </li>

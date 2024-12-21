@@ -11,8 +11,8 @@ const HomePage: React.FC = () => {
   const [isWideScreen, setIsWideScreen] = useState(false);
 
   const topics = [
-    { name: "حمد", href: "/pages/hamd", bgImage: "url('hamd.jpg')" },
-    { name: "نعت", href: "/pages/naat", bgImage: "url('naat.jpg')" },
+    { name: "حمد", href: "/hamd", bgImage: "url('hamd.jpg')" },
+    { name: "نعت", href: "/naat", bgImage: "url('naat.jpg')" },
     { name: "منقبت", href: "/1", bgImage: "url('manqabat.jpg')" },
     { name: "سلام", href: "/2", bgImage: "url('salam.jpg')" },
     { name: "مناجات", href: "/3", bgImage: "url('dua.jpg')" },
