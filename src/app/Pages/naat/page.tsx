@@ -23,7 +23,7 @@ const hamd: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background p-4 font-urdu text-foreground">
-      <h1 className="text-2xl font-bold mb-4 text-center text-shadow-blueGlow text-blue-600">نعت کی فہرست</h1>
+      <h1 className="text-3xl font-bold mb-4 text-center text-shadow-blueGlow text-blue-600">نعت کی فہرست</h1>
       <ul className="space-y-2">
         {songs.map((song) => (
           <li key={song.id} className="bg-white p-4 rounded-lg md:text-2xl text-lg text-center shadow-md font-semibold border ">
