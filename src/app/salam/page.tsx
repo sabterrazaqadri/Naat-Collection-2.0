@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { client } from "../../sanity/lib/client"; // Adjust the import path based on your project structure
 
-const Hamd: React.FC = () => {
+const Salam: React.FC = () => {
   const [songs, setSongs] = useState<{
     slug: any; _id: string; title: string 
 }[]>([]);
@@ -13,7 +13,7 @@ const Hamd: React.FC = () => {
   useEffect(() => {
     const fetchHamdSongs = async () => {
       try {
-        const query = `*[_type == "lyrics" && category->name == "Hamd"] {
+        const query = `*[_type == "lyrics" && category->name == "Salam"] {
           _id,
           title,
           slug
@@ -42,7 +42,7 @@ const Hamd: React.FC = () => {
   return (
     <div className="min-h-screen bg-background p-4 font-urdu text-foreground">
       <h1 className="text-3xl font-bold mb-4 text-center text-shadow-blueGlow text-blue-600">
-        حمد کی فہرست
+      سلام کی فہرست
       </h1>
       {songs.length > 0 ? (
         <ul className="space-y-2">
@@ -58,10 +58,10 @@ const Hamd: React.FC = () => {
           ))}
         </ul>
       ) : (
-        <p className="text-center">کوئی حمد موجود نہیں ہے۔</p>
+        <p className="text-center">کوئی سلام موجود نہیں ہے۔</p>
       )}
     </div>
   );
 };
 
-export default Hamd;
+export default Salam;

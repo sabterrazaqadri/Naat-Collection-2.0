@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "Naat Collection 2.0",
   description: "Developed By Sabter Raza Qadri Akhtari",
   icons: {
-    icon: "/favicon.png", // Path to the favicon
+    icon: "/icon.png", // Path to the favicon
   },
 };
 

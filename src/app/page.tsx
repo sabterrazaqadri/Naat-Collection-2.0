@@ -99,30 +99,30 @@ const HomePage: React.FC = () => {
       )}
 
       {/* Main Content */}
-      <main className="mt-16">
-        <h2 className="text-xl mb-8 font-semibold text-center text-shadow-blueGlow text-blue-600 underline underline-offset-4 lg:text-3xl">
-          موضوعات
-        </h2>
-        <div className="grid grid-cols-2 gap-4">
-          {filteredTopics.length > 0 ? (
-            filteredTopics.map((topic) => (
-              <Link
-                key={topic.href}
-                href={topic.href}
-                className="p-4 rounded-md shadow-md text-center bg-cover bg-center text-2xl lg:h-60 lg:p-44 lg:text-6xl"
-                style={{ backgroundImage: topic.bgImage }}
-              >
-                <div className="bg-opacity-50 bg-black font-bold text-3xl text-white p-4 rounded-md">
-                  {topic.name}
-                </div>
-              </Link>
-            ))
-          ) : (
-            <p className="text-center col-span-2">کوئی نتیجہ نہیں ملا۔</p>
-          )}
-        </div>
-      </main>
-    </div>
+        <main className="mt-16">
+          <h2 className="text-xl mb-8 font-semibold text-center text-shadow-blueGlow text-blue-600 underline underline-offset-4 lg:text-3xl">
+            موضوعات
+          </h2>
+          <div className="grid grid-cols-2 gap-4">
+            {filteredTopics.length > 0 ? (
+              filteredTopics.map((topic) => (
+                <Link
+                  key={topic.href}
+                  href={topic.href}
+                  className="p-4 rounded-md shadow-md text-center bg-cover bg-center text-2xl lg:h-60 lg:p-44 lg:text-6xl"
+                  style={{ backgroundImage: topic.bgImage }}
+                >
+                  <div className="bg-opacity-50 bg-black font-bold text-3xl text-white p-4 rounded-md">
+                    {topic.name}
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <p className="text-center col-span-2">کوئی نتیجہ نہیں ملا۔</p>
+            )}
+          </div>
+        </main>
+      </div>
   );
 };
 
