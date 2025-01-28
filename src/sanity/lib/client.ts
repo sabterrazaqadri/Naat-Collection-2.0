@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { createClient } from 'next-sanity'
 
 import { apiVersion, dataset, projectId } from '../env'
