@@ -16,7 +16,7 @@ const HomePage: React.FC = () => {
     { name: "منقبت", href: "/1", bgImage: "url('manqabat.jpg')" },
     { name: "سلام", href: "/2", bgImage: "url('salam.jpg')" },
     { name: "مناجات", href: "/3", bgImage: "url('dua.jpg')" },
-    { name: "متفرقات", href: "/4", bgImage: "url('misc.jpg')" },
+    { name: "متفرقات", href: "/miscellaneous", bgImage: "url('misc.jpg')" },
   ];
 
   const filteredTopics = topics.filter((topic) =>
