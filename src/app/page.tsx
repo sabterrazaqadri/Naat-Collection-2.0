@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FiSearch } from "react-icons/fi"; // Search Icon from React Icons
 
 const HomePage: React.FC = () => {
