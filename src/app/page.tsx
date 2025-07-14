@@ -11,12 +11,12 @@ const HomePage: React.FC = () => {
   const [isWideScreen, setIsWideScreen] = useState(false);
 
   const topics = [
-    { name: "حمد", href: "/hamd", bgImage: "url('hamd.jpg')" },
-    { name: "نعت", href: "/naat", bgImage: "url('naat.jpg')" },
-    { name: "منقبت", href: "/manqabat", bgImage: "url('manqabat.jpg')" },
-    { name: "سلام", href: "/salam", bgImage: "url('salam.jpg')" },
-    { name: "مناجات", href: "/munajaat", bgImage: "url('dua.jpg')" },
-    { name: "متفرقات", href: "/miscellaneous", bgImage: "url('misc.jpg')" },
+    { name: "حمد", href: "/hamd" },
+    { name: "نعت", href: "/naat" },
+    { name: "منقبت", href: "/manqabat" },
+    { name: "سلام", href: "/salam" },
+    { name: "مناجات", href: "/munajaat" },
+    { name: "متفرقات", href: "/miscellaneous" },
   ];
 
   const filteredTopics = topics.filter((topic) =>
@@ -39,90 +39,42 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background p-4 text-foreground font-urdu">
-      <header className="flex justify-between items-center py-4">
-        {/* Search Input / Icon */}
-        <div className="flex items-center gap-2">
-          {/* Show input on larger screens or if toggled */}
-          {(showSearch || isWideScreen) && (
+      <main className="flex flex-col items-center justify-center mt-8 w-full">
+        <div className="w-full max-w-sm mb-6">
+          <div className="bg-card backdrop-blur-lg rounded-xl shadow-md p-2 flex items-center gap-2">
+            <FiSearch className="text-accent text-lg" />
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="تلاش کریں..."
-              className="bg-black bg-opacity-50 text-white px-4 py-2 rounded-md shadow-md focus:outline-none"
+              className="flex-1 bg-transparent outline-none text-base py-1 px-2 text-white placeholder-white/70 focus:placeholder-white"
             />
-          )}
-          {/* Show search icon for smaller screens */}
-          <button
-            className="sm:hidden bg-white text-black p-2 rounded-md shadow-md"
-            onClick={() => setShowSearch(!showSearch)}
-            aria-label="Toggle Search"
-          >
-            <FiSearch />
-          </button>
-        </div>
-
-        {/* App Title */}
-        <h1 className="text-3xl font-bold lg:pr-44 lg:text-7xl">نعتیہ کلام</h1>
-
-        {/* Menu Button */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="bg-white text-black px-4 py-2 rounded-md shadow-md"
-          aria-label="Toggle Menu"
-        >
-          ☰
-        </button>
-      </header>
-
-      {/* Menu Navigation */}
-      {menuOpen && (
-        <nav className="bg-opacity-50 bg-black p-4 rounded-md text-white">
-          <ul className="space-y-2">
-            <li>
-              <Link href="/about-us" className="block">
-                ہمارے بارے میں
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact-us" className="block">
-                رابطہ کریں
-              </Link>
-            </li>
-            <li>
-              <Link href="/share" className="block">
-                ایپ شیئر کریں
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      )}
-
-      {/* Main Content */}
-        <main className="mt-16">
-          <h2 className="text-xl mb-8 font-semibold text-center text-shadow-blueGlow text-blue-600 underline underline-offset-4 lg:text-3xl">
-            موضوعات
-          </h2>
-          <div className="grid grid-cols-2 gap-4">
-            {filteredTopics.length > 0 ? (
-              filteredTopics.map((topic) => (
-                <Link
-                  key={topic.href}
-                  href={topic.href}
-                  className="p-4 rounded-md shadow-md text-center bg-cover bg-center text-2xl lg:h-60 lg:p-44 lg:text-6xl"
-                  style={{ backgroundImage: topic.bgImage }}
-                >
-                  <div className="bg-opacity-50 bg-black font-bold text-3xl text-white p-4 rounded-md">
-                    {topic.name}
-                  </div>
-                </Link>
-              ))
-            ) : (
-              <p className="text-center col-span-2">کوئی نتیجہ نہیں ملا۔</p>
-            )}
           </div>
-        </main>
-      </div>
+        </div>
+        <h1 className="heading-1 mb-8">موضوعات</h1>
+        <div className="grid grid-cols-2 gap-4 w-full max-w-2xl">
+          {filteredTopics.length > 0 ? (
+            filteredTopics.map((topic) => (
+              <Link
+                key={topic.href}
+                href={topic.href}
+                className="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 bg-gradient-to-br from-deepgreen/80 to-black/80 backdrop-blur-lg border border-accent/20"
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative h-32 sm:h-40 flex flex-col items-center justify-center p-4 text-center">
+                  <h3 className="text-white text-3xl sm:text-4xl font-calligraphic font-bold tracking-wide drop-shadow-lg group-hover:text-accent transition-colors duration-300">
+                    {topic.name}
+                  </h3>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <p className="text-center col-span-2 text-lg">کوئی نتیجہ نہیں ملا۔</p>
+          )}
+        </div>
+      </main>
+    </div>
   );
 };
 

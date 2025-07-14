@@ -11,9 +11,15 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        accent: "#e9c46a",
+        deepgreen: "#0f5132",
+        white: "#fff",
+        card: "rgba(255,255,255,0.15)",
       },
       fontFamily: {
         urdu: ['"Noto Nastaliq Urdu"', "serif"],
+        calligraphic: ['"Scheherazade New"', 'serif'],
+        modern: ['"Segoe UI"', 'Arial', 'sans-serif'],
       },
       screens: {
         xs: "480px", // Custom breakpoint for extra small screens
