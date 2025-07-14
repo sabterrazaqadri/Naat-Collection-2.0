@@ -5,10 +5,7 @@ import { useState, useEffect } from "react";
 import { FiSearch } from "react-icons/fi"; // Search Icon from React Icons
 
 const HomePage: React.FC = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [showSearch, setShowSearch] = useState(false);
-  const [isWideScreen, setIsWideScreen] = useState(false);
 
   const topics = [
     { name: "حمد", href: "/hamd" },
@@ -22,20 +19,6 @@ const HomePage: React.FC = () => {
   const filteredTopics = topics.filter((topic) =>
     topic.name.includes(searchTerm)
   );
-
-  // Update `isWideScreen` on mount and resize
-  useEffect(() => {
-    const handleResize = () => {
-      setIsWideScreen(window.innerWidth >= 640);
-    };
-
-    handleResize(); // Set initial state
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <div className="min-h-screen bg-background p-4 text-foreground font-urdu">
